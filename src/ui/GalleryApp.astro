@@ -1,0 +1,24 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/Common/Container.astro";
+import PhotoSwipe from "@components/Common/PhotoSwipe.astro";
+import AutoSwipe from "@components/gall/AutoSwipe";
+
+import { getI18N } from "@i18n/index";
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+const { p, title } = i18n.Gallery;
+---
+
+<Layout>
+  <Container>
+    <main class="py-6 lg:py-10">
+      <div class="">
+        <span class="text-5xl mb-4 text-primary font-semibold">{title}</span>
+        <p class="text-texto dark:text-slate-200 leading-relaxed pt-2">{p}</p>
+      </div>
+      <PhotoSwipe imageFolder="gall" />
+      <AutoSwipe client:load />
+    </main>
+  </Container>
+</Layout>

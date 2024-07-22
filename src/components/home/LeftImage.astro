@@ -1,0 +1,51 @@
+---
+import imagen2 from "@assets/images/image3.webp";
+import imagen3 from "@assets/images/image4.webp";
+import imagen4 from "@assets/images/image7.webp";
+import { Image } from "astro:assets";
+---
+
+<section
+  class="items-center gap-8 py-8 md:grid md:grid-cols-2 lg:grid lg:grid-cols-2 lg:py-16 xl:gap-16"
+>
+  <Image
+    src={imagen2}
+    class="w-full rounded-xl"
+    alt="Construction site before and after"
+    draggable="false"
+    width="2048"
+    height="1366"
+    loading="lazy"
+    decoding="async"
+  /><div class="mt-4 md:mt-0">
+    <h2
+      class="mb-4 text-balance text-4xl font-extrabold tracking-tight text-neutral-800 dark:text-neutral-200"
+    >
+      Transforming Designs into Reality
+    </h2><p
+      class="mb-4 max-w-prose text-pretty font-light text-neutral-600 dark:text-neutral-400 sm:text-lg"
+    >
+      Our skilled craftsmen bring precision and excellence to every construction
+      project. From minor installations to substantial structural work,
+      ScrewFast offers reliable construction services to turn your plans into
+      tangible outcomes. We ensure the highest standards of safety and
+      workmanship, utilizing top-quality tools and materials from our extensive
+      inventory.
+    </p><a
+      class="group inline-flex items-center justify-center gap-x-2 rounded-lg px-4 py-3 text-sm font-bold text-neutral-50 ring-zinc-500 transition duration-300 focus-visible:ring outline-none border border-transparent bg-primary hover:bg-primary active:bg-primary dark:focus:outline-none disabled:pointer-events-none disabled:opacity-50 2xl:text-base dark:ring-zinc-200"
+      href="#"
+      >Learn More <svg
+        class="h-4 w-4 flex-shrink-0 transition duration-300 group-hover:translate-x-1"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        ><title></title><path d="m9 18 6-6-6-6" class=""></path></svg
+      ></a
+    >
+  </div>
+</section>

@@ -1,0 +1,49 @@
+---
+import { Image } from "astro:assets";
+import { team } from "@constants/constants";
+import { getI18N } from "@i18n/index";
+
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+const equipo = i18n["About:"].Team;
+---
+
+<div class="py-6 lg:py-10">
+  <h2 class="text-3xl font-extrabold text-gray-900 mb-8">{equipo}</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    {
+      team.map((t, index) =>
+        t.link ? (
+          <a
+            href={t.link}
+            target="_blank"
+            class="bg-cardBg shadow-lg flex flex-col  overflow-hidden group rounded-xl"
+          >
+            <Image
+              src={t.image}
+              alt={t.name}
+              class=" object-cover filter grayscale group-hover:filter-none lg:h-64 h-full w-full rounded-t-xl transition-all ease-in "
+            />
+
+            <div class="p-6 text-texto dark:text-slate-200">
+              <h3 class="text-xl font-semibold mb-2">{t.name}</h3>
+              <p>{t.position}</p>
+            </div>
+          </a>
+        ) : (
+          <div class="bg-cardBg shadow-lg flex flex-col  overflow-hidden group rounded-xl">
+            <Image
+              src={t.image}
+              alt={t.name}
+              class=" object-cover lg:h-64 h-full w-full rounded-t-xl"
+            />
+            <div class="p-6 text-texto dark:text-slate-200">
+              <h3 class="text-xl font-semibold  mb-2">{t.name}</h3>
+              <p class="">{t.position}</p>
+            </div>
+          </div>
+        )
+      )
+    }
+  </div>
+</div>

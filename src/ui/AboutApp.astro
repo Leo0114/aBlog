@@ -1,0 +1,23 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/Common/Container.astro";
+import Card from "@components/Common/Card.astro";
+import foto from "@assets/images/image2.webp";
+import { getI18N } from "@i18n/index";
+import Team from "@components/about/Team.astro";
+
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+const { subTitle, body, body2 } = i18n["About:"].Content;
+const { title } = i18n["About:"];
+---
+
+<Layout>
+  <Container>
+    <main class="py-6 lg:py-10">
+      <span class="text-5xl mb-4 text-primary font-semibold">{title}</span>
+      <Card subTitle={subTitle} imagen={foto} body={body} body2={body2} />
+      <Team />
+    </main>
+  </Container>
+</Layout>

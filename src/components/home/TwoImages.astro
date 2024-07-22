@@ -1,0 +1,61 @@
+---
+import { Image } from "astro:assets";
+
+import imagen3 from "@assets/images/image4.webp";
+import imagen4 from "@assets/images/image7.webp";
+---
+
+<section
+  class="mx-auto max-w-[85rem] items-center gap-16 px-4 py-10 sm:px-6 lg:grid lg:grid-cols-2 lg:px-8 lg:py-14 2xl:max-w-full"
+>
+  <div>
+    <h2
+      class="mb-4 text-balance text-4xl font-extrabold tracking-tight text-neutral-800 dark:text-neutral-200"
+    >
+      Crafting Bespoke Strategies for Unique Challenges
+    </h2><p
+      class="mb-4 max-w-prose text-pretty font-light text-neutral-600 dark:text-neutral-400 sm:text-lg"
+    >
+      For our larger enterprise clients, ScrewFast offers custom solutions
+      designed to meet specific industry challenges. By understanding your
+      unique needs, we engineer tailored strategies aimed at optimizing your
+      operations, enhancing efficiency, and driving your business forward.
+    </p><a
+      class="group inline-flex items-center justify-center gap-x-2 rounded-lg px-4 py-3 text-sm font-bold text-neutral-50 ring-zinc-500 transition duration-300 focus-visible:ring outline-none border border-transparent bg-primary hover:bg-primary active:bg-primary dark:focus:outline-none disabled:pointer-events-none disabled:opacity-50 2xl:text-base dark:ring-zinc-200"
+      href="#"
+      >Read more <svg
+        class="h-4 w-4 flex-shrink-0 transition duration-300 group-hover:translate-x-1"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        ><title></title><path d="m9 18 6-6-6-6" class=""></path></svg
+      ></a
+    >
+  </div><div class="mt-8 grid grid-cols-2 gap-4">
+    <Image
+      src={imagen3}
+      class="w-full rounded-xl"
+      alt="In progress building structure"
+      draggable="false"
+      width="1920"
+      height="2560"
+      loading="lazy"
+      decoding="async"
+    />
+    <Image
+      src={imagen4}
+      class="mt-4 w-full rounded-xl lg:mt-10"
+      alt="Brown and gray building under construction"
+      draggable="false"
+      width="1920"
+      height="2876"
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
+</section>

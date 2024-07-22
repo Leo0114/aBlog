@@ -1,0 +1,16 @@
+---
+const { path, title, className } = Astro.props;
+const { pathname } = Astro.url;
+const isActive = pathname === path;
+const linkClass = isActive
+  ? `underline dark:text-secondary rounded-full text-primary`
+  : ` ${className}`;
+---
+
+<li
+  class="text-lg my-1 lg:my-0 text-texto dark:text-lightGreen transition-all ease-in"
+>
+  <a href={path} class={linkClass}>
+    {title}
+  </a>
+</li>

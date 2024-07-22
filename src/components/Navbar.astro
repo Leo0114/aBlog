@@ -1,0 +1,84 @@
+---
+import {
+  getLangFromUrl,
+  useTranslatedPath,
+  useTranslations,
+} from "@i18n/utils";
+import Container from "./Common/Container.astro";
+import NavLink from "./Common/NavLink.astro";
+import { Astronav, MenuIcon, MenuItems, StickyHeader } from "astro-navbar";
+import { Image } from "astro:assets";
+import logo from "@assets/images/blog.webp";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+---
+
+<StickyHeader
+  class="shadow-md p-8 gap-6 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px] text-texto sticky z-20 top-0 transition-all w-full ease-in-out"
+  scrollY={50}
+  defaultClass="py-6 border-transparent bg-navBar "
+  activeClass="p-4 shadow-xl  backdrop-blur-lg"
+>
+  <Container>
+    <Astronav closeOnClick>
+      <div
+        class="flex justify-between items-center flex-col lg:flex-row relative w-full"
+      >
+        <div
+          class="flex w-full lg:w-auto items-center justify-center lg:justify-between"
+        >
+          <a
+            href={translatePath("/")}
+            class="text-2xl flex items-center transition focus-visible:ring-2 focus-visible:ring-offset-2
+           focus-visible:ring-secondary focus-visible:outline-none focus-visible:shadow-outline-secondary
+           rounded-full px-2 -ml-2"
+          >
+            <Image
+              alt="logo"
+              src={logo}
+              class="w-12 h-auto mr-2"
+              quality={"low"}
+              loading={"eager"}
+              format="avif"
+            />
+
+            <span class="text-texto">Leo</span><span
+              class="font-bold text-primary">Blog</span
+            ></a
+          >
+          <div class="block lg:hidden ml-4 pt-4">
+            <MenuIcon class="w-8 h-8 text-texto" />
+          </div>
+        </div>
+        <MenuItems class="hidden lg:flex lg:items-center lg:w-auto">
+          <ul class="flex flex-col lg:flex-row lg:gap-8 items-center">
+            <NavLink title={t("nav.index")} path={translatePath("/")} />
+
+            <NavLink
+              title={t("nav.articles")}
+              path={translatePath("/articles/")}
+            />
+            <NavLink
+              title={t("nav.gallery")}
+              path={translatePath("/gallery/")}
+            />
+            <NavLink title={t("nav.about")} path={translatePath("/about/")} />
+
+            <!-- <SwitchLanguage /> -->
+          </ul>
+          <div class="md:ml-8">
+            <!-- <ThemeToggle client:load /> -->
+          </div>
+        </MenuItems>
+      </div>
+    </Astronav>
+  </Container>
+</StickyHeader>
+
+<style is:global>
+  .astronav-dropdown:hover .dropdown-toggle {
+    display: block;
+  }
+</style>

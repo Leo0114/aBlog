@@ -1,0 +1,19 @@
+{
+    "Seo": {
+        "title": "BLog",
+        "description": "Pequeño Blog con multiples topicos y datos random"
+    },
+    "About": {
+        "title": "About Us",
+        "Content": {
+            "subTitle": "Who We Are",
+            "body": "We are passionate about improving user experiences on the web and in applications. We are familiar with the TypeScript and JavaScript environments and, consequently, with the React environment. We focus on applying best practices, being efficient and effective in our work.",
+            "body2": "Our mission is to empower and educate our readers, helping them stay updated in the rapidly changing world of technology. Whether you are an experienced developer, a gadget enthusiast, or simply curious about the latest tech trends, we've got you covered."
+        },
+        "Team": "Our team"
+    },
+    "Gallery": {
+        "title": "Gallery",
+        "p": "Our gallery is a vibrant space that celebrates diversity and artistic creativity. With a wide collection of contemporary artworks, we offer a captivating visual experience for all visitors. From paintings and sculptures to photography and multimedia, our gallery is the perfect place to discover new perspectives and enjoy art in all its forms."
+    }
+}

@@ -1,0 +1,35 @@
+---
+import { ViewTransitions, fade, slide } from "astro:transitions";
+import Footer from "@components/Footer.astro";
+import Navbar from "@components/Navbar.astro";
+import { getI18N } from "@i18n/index";
+
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+const { title, description } = i18n.Seo;
+interface Props {
+  wtitle?: string;
+}
+
+const { wtitle } = Astro.props;
+---
+
+<!doctype html>
+<html lang={currentLocale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/blog.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <ViewTransitions transition:animate={fade({ duration: "0.4s" })} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-fondo">
+    <Navbar />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

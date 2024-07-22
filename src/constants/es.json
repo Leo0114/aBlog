@@ -1,0 +1,19 @@
+{
+    "Seo": {
+        "title": "BLog ",
+        "description": "Pequeño Blog con multiples topicos y datos random"
+    },
+    "About:": {
+        "title": " Acerca de nosotros",
+        "Content": {
+            "subTitle": "Quiénes somos",
+            "body": "Somos personas apasionadas por mejorar la experiencia de usuarios en web y aplicaciones. Estamos familiarizados con el entorno TypeScript y JavaScript y, por ende, con el entorno de React. Nos enfocamos en aplicar las mejores prácticas, siendo eficientes y eficaces en nuestro trabajo.",
+            "body2": "Nuestra misión es empoderar y educar a nuestros lectores, ayudándoles a mantenerse actualizados en el mundo rápidamente cambiante de la tecnología. Ya seas un desarrollador experimentado, un entusiasta de los gadgets o simplemente curioso sobre las últimas tendencias tecnológicas, te tenemos cubierto."
+        },
+        "Team": "Nuestro equipo"
+    },
+    "Gallery": {
+        "title": "Galería",
+        "p": "Nuestra galería es un espacio vibrante que celebra la diversidad y la creatividad artística. Con una amplia colección de obras de arte contemporáneo, ofrecemos una experiencia visual cautivadora para todos los visitantes. Desde pinturas y esculturas hasta fotografías y multimedia, nuestra galería es el lugar perfecto para descubrir nuevas perspectivas y disfrutar del arte en todas sus formas."
+    }
+}

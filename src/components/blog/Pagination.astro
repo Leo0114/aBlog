@@ -1,0 +1,33 @@
+---
+import { getI18N } from "@i18n/index";
+
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+interface Props {
+  currentPage: number;
+  disablePrevious: Boolean;
+  disableNext: Boolean;
+  totalPages: number;
+}
+const { Next, Prev } = i18n.Article.Pagination;
+const { currentPage, disableNext, disablePrevious, totalPages } = Astro.props;
+---
+
+<div class="flex justify-between mt-10">
+  <a
+    href={"/articles?page=" + (currentPage - 1)}
+    class={disablePrevious
+      ? "inline-block bg-gray-100 px-3 py-2 text-gray-400 rounded-lg pointer-events-none"
+      : "inline-block bg-indigo-100 px-3 py-2 hover:bg-primary hover:text-white rounded-lg"}
+  >
+    {Prev}
+  </a>
+  <a
+    href={"/articles?page=" + (currentPage + 1)}
+    class={disableNext
+      ? "inline-block bg-gray-100 px-3 py-2 text-gray-400 rounded-lg pointer-events-none"
+      : "inline-block bg-indigo-100 px-3 py-2 hover:bg-primary hover:text-white rounded-lg"}
+  >
+    {Next}
+  </a>
+</div>

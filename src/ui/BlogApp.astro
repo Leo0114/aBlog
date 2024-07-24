@@ -1,12 +1,46 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/Common/Container.astro";
+import Pagination from "@components/blog/Pagination.astro";
+import ArticleCard from "@components/blog/ArticleCard.astro";
+import { articles } from "@constants/constants";
+import { getI18N } from "@i18n/index";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+const tw = i18n.Blogs;
+
+const currentPage: number | null = +Astro.url.searchParams.get("page")! || 1;
+const allBlogArticles: CollectionEntry<"blog">[] = (
+  await getCollection("blog")
+).sort(
+  (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
+    b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+const totalPages: number = Math.ceil(allBlogArticles.length / articles);
+const articleForPage: CollectionEntry<"blog">[] = allBlogArticles.slice(
+  (currentPage - 1) * articles,
+  currentPage * articles
+);
 ---
 
 <Layout>
   <Container>
-    <main class="min-h-screen">
-      <span class="text-5xl">About</span>
+    <main class="py-6 lg:py-10">
+      <span class="text-5xl mb-4 text-primary font-semibold">{tw}</span>
     </main>
+    <section class="mb-10">
+      <div class="grid grid-cols-2 gap-4 md:grid-cols-3">
+        {articleForPage.map((art) => <ArticleCard article={art} />)}
+      </div>
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        disableNext={currentPage === totalPages}
+        disablePrevious={currentPage === 1}
+      />
+    </section>
   </Container>
 </Layout>

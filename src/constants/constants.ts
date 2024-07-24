@@ -53,3 +53,16 @@ export const team: TeamProps[] = [
     link: "https://example.com/jose",
   },
 ];
+
+export const articles = 6;
+
+function formatDate(date: Date): string {
+  const options: Intl.DateTimeFormatOptions = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+  return new Date(date).toLocaleDateString(undefined, options);
+}
+
+export { formatDate };

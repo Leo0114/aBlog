@@ -1,0 +1,33 @@
+---
+import { formatDate } from "@constants/constants";
+import type { CollectionEntry } from "astro:content";
+import Tags from "./Tags.astro";
+import { Image } from "astro:assets";
+interface Props {
+  article: CollectionEntry<"blog">;
+}
+const { article } = Astro.props;
+---
+
+<main class="max-w-md mx-auto mt-8">
+  <section class="bg-cardBg rounded-lg overflow-hidden shadow-lg">
+    <a href={"/article/" + article.slug}>
+      <Image
+        alt={article.data.imageAlt}
+        src={article.data.image}
+        quality={"mid"}
+        loading={"eager"}
+        class="w-full h-48 object-cover hover:opacity-75 transition-all duration-300 ease-in-out"
+      />
+    </a>
+    <div class="p-6">
+      <h2 class="text-2xl font-semibold mb-2">
+        <a href={"/article/" + article.slug}>{article.data.title}</a>
+      </h2>
+      <span class="text-slate-600 text-sm mb-4"
+        >{formatDate(article.data.pubDate)}</span
+      >
+      <Tags tags={article.data.tags} />
+    </div>
+  </section>
+</main>

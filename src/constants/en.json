@@ -15,5 +15,13 @@
     "Gallery": {
         "title": "Gallery",
         "p": "Our gallery is a vibrant space that celebrates diversity and artistic creativity. With a wide collection of contemporary artworks, we offer a captivating visual experience for all visitors. From paintings and sculptures to photography and multimedia, our gallery is the perfect place to discover new perspectives and enjoy art in all its forms."
+    },
+    "Footer": "All Rights Reserved",
+    "Blogs": "All Articles",
+    "Article": {
+        "Pagination": {
+            "Prev": "Previous",
+            "Next": "Next"
+        }
     }
 }

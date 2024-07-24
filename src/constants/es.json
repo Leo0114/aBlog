@@ -15,5 +15,13 @@
     "Gallery": {
         "title": "Galería",
         "p": "Nuestra galería es un espacio vibrante que celebra la diversidad y la creatividad artística. Con una amplia colección de obras de arte contemporáneo, ofrecemos una experiencia visual cautivadora para todos los visitantes. Desde pinturas y esculturas hasta fotografías y multimedia, nuestra galería es el lugar perfecto para descubrir nuevas perspectivas y disfrutar del arte en todas sus formas."
+    },
+    "Footer": "Todos los derechos reservados",
+    "Blogs": "Todos los Articulos",
+    "Article": {
+        "Pagination": {
+            "Prev": "Regresar",
+            "Next": "Siguiente"
+        }
     }
 }

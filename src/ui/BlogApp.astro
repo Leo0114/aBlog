@@ -8,14 +8,20 @@ import { getI18N } from "@i18n/index";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 
+interface Props {
+  lan: string;
+}
+const { lan } = Astro.props;
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
 const tw = i18n.Blogs;
 
+const esBlogEntries = await getCollection("blog", ({ id }) => {
+  return id.startsWith(`${lan}`);
+});
+
 const currentPage: number | null = +Astro.url.searchParams.get("page")! || 1;
-const allBlogArticles: CollectionEntry<"blog">[] = (
-  await getCollection("blog")
-).sort(
+const allBlogArticles: CollectionEntry<"blog">[] = esBlogEntries.sort(
   (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
     b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );

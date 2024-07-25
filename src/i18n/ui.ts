@@ -31,13 +31,13 @@ export const routes = {
   en: {
     index: "home",
     about: "about",
-    gallery: "galley",
+    gallery: "gallery",
     articles: "articles",
   },
   es: {
     index: "home",
     about: "about",
-    gallery: "galley",
+    gallery: "gallery",
     articles: "articles",
   },
 };

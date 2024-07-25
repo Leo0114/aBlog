@@ -3,6 +3,7 @@ import { formatDate } from "@constants/constants";
 import type { CollectionEntry } from "astro:content";
 import Tags from "./Tags.astro";
 import { Image } from "astro:assets";
+import { fade } from "astro:transitions";
 interface Props {
   article: CollectionEntry<"blog">;
 }
@@ -11,8 +12,9 @@ const { article } = Astro.props;
 
 <main class="max-w-md mx-auto mt-8">
   <section class="bg-cardBg rounded-lg overflow-hidden shadow-lg">
-    <a href={"/article/" + article.slug}>
+    <a href={"/articles/" + article.slug}>
       <Image
+        transition:name={`blog ${article.slug} image`}
         alt={article.data.imageAlt}
         src={article.data.image}
         quality={"mid"}
@@ -21,8 +23,12 @@ const { article } = Astro.props;
       />
     </a>
     <div class="p-6">
-      <h2 class="text-2xl font-semibold mb-2">
-        <a href={"/article/" + article.slug}>{article.data.title}</a>
+      <h2
+        class="text-2xl font-semibold mb-2 transition-all"
+        transition:animate={fade({ duration: ".3s" })}
+        transition:name={`blog ${article.data.title} title`}
+      >
+        <a href={"/articles/" + article.slug}>{article.data.title}</a>
       </h2>
       <span class="text-slate-600 text-sm mb-4"
         >{formatDate(article.data.pubDate)}</span

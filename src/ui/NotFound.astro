@@ -1,0 +1,16 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/Common/Container.astro";
+import { getI18N } from "@i18n/index";
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+const Regresar = i18n.Article.Return;
+---
+
+<Layout>
+  <Container>
+    <main class="min-h-screen items-center justify-center">
+      {Regresar}
+    </main>
+  </Container>
+</Layout>

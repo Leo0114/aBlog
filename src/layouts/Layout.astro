@@ -25,7 +25,7 @@ const { wtitle } = Astro.props;
     <ViewTransitions transition:animate={fade({ duration: "0.4s" })} />
     <title>{title}</title>
   </head>
-  <body class="bg-fondo">
+  <body class="bg-fondo dark:bg-slate-900 dark:text-white text-texto">
     <Navbar />
     <main>
       <slot />

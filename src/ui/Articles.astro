@@ -1,10 +1,12 @@
 ---
+import ReturnButton from "@components/Common/ReturnButton.astro";
 import Container from "@components/Common/Container.astro";
 import { formatDate } from "@constants/constants";
 import Tags from "@components/blog/Tags.astro";
 import Layout from "@layouts/Layout.astro";
 import { getEntry } from "astro:content";
 import { Image } from "astro:assets";
+
 const { slug } = Astro.params;
 
 if (slug === undefined) {
@@ -22,15 +24,15 @@ const { Content } = await entry.render();
 
 <Layout>
   <Container>
-    <a
-      href="/articles"
-      class="inline-block bg-gray-100 p-2 mb-6 hover:bg-indigo-500 hover:text-white"
-      >Back To Articles</a
-    >
-    <article>
-      <h1 class="text-4xl font-bold mb-2">{entry.data.title}</h1>
+    <article class="py-6 lg:py-10">
+      <ReturnButton />
+      <h1 class="text-4xl font-bold mb-2 text-primary">{entry.data.title}</h1>
       <h3 class="text-lg mb-2">
-        Written by {entry.data.author} on {formatDate(entry.data.pubDate)}
+        Written by <span class="font-bold text-secondary">
+          {entry.data.author}
+        </span> on <span class="text-sm text-secondary italic">
+          {formatDate(entry.data.pubDate)}</span
+        >
       </h3>
       <Tags tags={entry.data.tags} />
       <Image
@@ -45,11 +47,13 @@ const { Content } = await entry.render();
 
 <style is:global>
   p {
-    margin: 20px 0;
+    margin: 8px;
+    font-size: 18px;
   }
 
   h2 {
-    margin: 20px 0;
-    font-size: 1.8rem;
+    margin: 24px 0;
+    font-size: 30px;
+    font-weight: bold;
   }
 </style>

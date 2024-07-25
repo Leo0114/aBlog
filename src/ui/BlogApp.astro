@@ -10,8 +10,9 @@ import type { CollectionEntry } from "astro:content";
 
 interface Props {
   lan: string;
+  lang?: string;
 }
-const { lan } = Astro.props;
+const { lan, lang = "" } = Astro.props;
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
 const tw = i18n.Blogs;
@@ -39,7 +40,11 @@ const articleForPage: CollectionEntry<"blog">[] = allBlogArticles.slice(
     </main>
     <section class="mb-10">
       <div class="grid grid-cols-2 gap-4 md:grid-cols-3">
-        {articleForPage.map((art) => <ArticleCard article={art} />)}
+        {
+          articleForPage.map((art) => (
+            <ArticleCard article={art} idioma={lang} />
+          ))
+        }
       </div>
       <Pagination
         currentPage={currentPage}

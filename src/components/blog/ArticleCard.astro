@@ -6,13 +6,14 @@ import { Image } from "astro:assets";
 import { fade } from "astro:transitions";
 interface Props {
   article: CollectionEntry<"blog">;
+  idioma?: string;
 }
-const { article } = Astro.props;
+const { article, idioma = "" } = Astro.props;
 ---
 
 <main class="max-w-md mx-auto mt-8">
   <section class="bg-cardBg rounded-lg overflow-hidden shadow-lg">
-    <a href={"/articles/" + article.slug}>
+    <a href={`${idioma}/articles/` + article.slug}>
       <Image
         transition:name={`blog ${article.slug} image`}
         alt={article.data.imageAlt}
@@ -28,7 +29,7 @@ const { article } = Astro.props;
         transition:animate={fade({ duration: ".3s" })}
         transition:name={`blog ${article.data.title} title`}
       >
-        <a href={"/articles/" + article.slug}>{article.data.title}</a>
+        <a href={`${idioma}/articles/` + article.slug}>{article.data.title}</a>
       </h2>
       <span class="text-slate-600 text-sm mb-4"
         >{formatDate(article.data.pubDate)}</span

@@ -1,14 +1,16 @@
 ---
+import { Astronav, MenuIcon, MenuItems, StickyHeader } from "astro-navbar";
+import SwitchLanguague from "./Common/SwitchLanguague.astro";
 import {
   getLangFromUrl,
   useTranslatedPath,
   useTranslations,
 } from "@i18n/utils";
 import Container from "./Common/Container.astro";
+import ThemeToggle from "./Common/ThemeToggle";
 import NavLink from "./Common/NavLink.astro";
-import { Astronav, MenuIcon, MenuItems, StickyHeader } from "astro-navbar";
-import { Image } from "astro:assets";
 import logo from "@assets/images/blog.webp";
+import { Image } from "astro:assets";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -66,10 +68,10 @@ const translatePath = useTranslatedPath(lang);
             />
             <NavLink title={t("nav.about")} path={translatePath("/about/")} />
 
-            <!-- <SwitchLanguage /> -->
+            <SwitchLanguague />
           </ul>
           <div class="md:ml-8">
-            <!-- <ThemeToggle client:load /> -->
+            <ThemeToggle client:load />
           </div>
         </MenuItems>
       </div>

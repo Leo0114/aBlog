@@ -3,8 +3,8 @@
         "title": "BLog ",
         "description": "Pequeño Blog con multiples topicos y datos random"
     },
-    "About:": {
-        "title": " Acerca de nosotros",
+    "About": {
+        "title": "Acerca de nosotros",
         "Content": {
             "subTitle": "Quiénes somos",
             "body": "Somos personas apasionadas por mejorar la experiencia de usuarios en web y aplicaciones. Estamos familiarizados con el entorno TypeScript y JavaScript y, por ende, con el entorno de React. Nos enfocamos en aplicar las mejores prácticas, siendo eficientes y eficaces en nuestro trabajo.",

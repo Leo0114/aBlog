@@ -1,0 +1,48 @@
+---
+import Layout from "@layouts/Layout.astro";
+import ArticleCard from "@components/blog/ArticleCard.astro";
+import Container from "@components/Common/Container.astro";
+import SearchForm from "@components/blog/SearchForm.astro";
+import ReturnButton from "@components/Common/ReturnButton.astro";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
+const query: string | null = Astro.url.searchParams.get("query");
+
+const esBlogEntries = await getCollection("blog", ({ id }) => {
+  return id.startsWith("es/");
+});
+const allBlogArticles: CollectionEntry<"blog">[] = esBlogEntries;
+
+// Filter articles based on query
+const searchResults = allBlogArticles.filter((article) => {
+  const titleMatch: boolean = article.data.title
+    .toLowerCase()
+    .includes(query!.toLowerCase());
+
+  const bodyMatch: boolean = article.body
+    .toLowerCase()
+    .includes(query!.toLowerCase());
+
+  const slugMatch: boolean = article.slug
+    .toLowerCase()
+    .includes(query!.toLowerCase());
+
+  return titleMatch || bodyMatch || slugMatch;
+});
+---
+
+<Layout>
+  <Container className=" py-6 lg:py-10 min-h-screen">
+    <ReturnButton />
+    <div class="py-8">
+      <SearchForm />
+    </div>
+
+    <h1 class="text-2xl pb-3">Resultados de: <strong>{query}</strong></h1>
+
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {searchResults.map((article) => <ArticleCard article={article} />)}
+    </div>
+  </Container>
+</Layout>

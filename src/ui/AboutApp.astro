@@ -8,8 +8,8 @@ import Team from "@components/about/Team.astro";
 
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
-const { subTitle, body, body2 } = i18n["About:"].Content;
-const { title } = i18n["About:"];
+const { subTitle, body, body2 } = i18n.About.Content;
+const title = i18n.About.title;
 ---
 
 <Layout>

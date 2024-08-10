@@ -65,4 +65,20 @@ function formatDate(date: Date): string {
   return new Date(date).toLocaleDateString(undefined, options);
 }
 
+export interface Character {
+  id: string;
+  name: string;
+  ki: string;
+  maxKi: string;
+  description: string;
+  afiliation: string;
+  race: string;
+  status: string;
+  gender: string;
+  image: string;
+}
+export interface APIResponse {
+  results: Character[];
+}
+
 export { formatDate };
